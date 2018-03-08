@@ -1,4 +1,5 @@
-console.log('BOOTSTRAP!');
+import {config, Locale} from './utils';
+import Axios from 'axios';
 
 try {
 	window.$ = window.jQuery = require('jquery');
@@ -7,4 +8,14 @@ try {
 	require('bootstrap');
 } catch (e) {}
 
-document.querySelector('html').lang = 'en_US';
+Axios.get('https://medium.com/@nawawishkid/latest', {
+	headers: {
+		Accept: 'application/json'
+	}
+}).then(response => {
+	console.log(response);
+}).catch(error => {
+	console.log(error.response);
+});
+
+document.querySelector('html').lang = config('app.language');

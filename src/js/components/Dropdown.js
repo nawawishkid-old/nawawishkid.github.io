@@ -8,14 +8,9 @@ export default class Dropdown extends Component {
 	}
 
 	render() {
-		console.log('Dropdown.render()');
+		//console.log('Dropdown.render()');
 
 		const p = this.props;
-		const children = Array.isArray(p.children) ? 
-						 p.children.map((item, index) => <a href={item.props.href} className={item.props.className}>{item.props.node}</a>) :
-						 <a href={p.children.props.href} className={p.children.props.className}>{p.children.props.node}</a>
-
-		console.log(children);
 
 		return (
 			<div className={'dropdown ' + p.wrapperClassName} style={p.wrapperStyle}>

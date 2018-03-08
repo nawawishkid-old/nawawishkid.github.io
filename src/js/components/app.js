@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from './Dropdown';
 import DropdownItem from './DropdownItem';
-import Locale from './Locale';
+import {config, Locale} from '../utils';
 
 const locale = new Locale();
 
@@ -16,8 +16,6 @@ class App extends Component {
 	}
 
 	changeAppLang(ev) {
-		console.log('Header.__changeDocLang()');
-
 		const lang = ev.target.dataset.value;
 
 		document.querySelector('html').lang = lang;
@@ -25,6 +23,7 @@ class App extends Component {
 	}
 
 	render() {
+		console.log(config('content.contact.0.name'));
 
 		return (
 			<div className="react-app">
@@ -32,6 +31,9 @@ class App extends Component {
 					<Dropdown
 						label={locale.get('localeName')}
 						id="langButton"
+						wrapperStyle={{
+							marginLeft: 'auto'
+						}}
 					>
 						{
 							Object.entries(locale.getLocales())
@@ -40,6 +42,7 @@ class App extends Component {
 										key={index}
 										value={item[0]}
 										onClick={this.changeAppLang.bind(this)}
+										active={locale.getLang() === item[0] ? true : false}
 									>
 										{item[1].localeName}
 									</DropdownItem>
@@ -49,6 +52,16 @@ class App extends Component {
 				</header>
 				<article>
 					{locale.get('selfDesc')}
+					{
+						config('content.contact').map((item, index) => {
+							return (
+								<div className="card" key={index}>
+									<div className="card-header">{item.name}</div>
+									<div className="card-footer">{item.url}</div>
+								</div>
+							)
+						})
+					}
 				</article>
 			</div>
 		);
