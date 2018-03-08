@@ -8,14 +8,4 @@ try {
 	require('bootstrap');
 } catch (e) {}
 
-Axios.get('https://medium.com/@nawawishkid/latest', {
-	headers: {
-		Accept: 'application/json'
-	}
-}).then(response => {
-	console.log(response);
-}).catch(error => {
-	console.log(error.response);
-});
-
 document.querySelector('html').lang = config('app.language');
