@@ -6,3 +6,5 @@ try {
 
 	require('bootstrap');
 } catch (e) {}
+
+document.querySelector('html').lang = 'en_US';
