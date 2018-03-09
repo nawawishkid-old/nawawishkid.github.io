@@ -2,20 +2,56 @@
 	"app": {
 		"language": "th-TH"
 	},
+
 	"content": {
 		"contact": [
 			{
 				"name": "Twitter",
-				"url": "https://twitter.com/nawawishkid"
+				"url": "https://twitter.com/nawawishkid",
+				"icon": "src/img/icon-twitter2.png",
+				"size": [400, 400]
 			},
 			{
 				"name": "Medium",
-				"url": "https://medium.com/@nawawishkid"
+				"url": "https://medium.com/@nawawishkid",
+				"icon": "src/img/icon-medium.png",
+				"size": [390, 390]
 			},
 			{
 				"name": "GitHub",
-				"url": "https://github.com/nawawishkid"
+				"url": "https://github.com/nawawishkid",
+				"icon": "src/img/icon-github2.png",
+				"size": [64, 64]
 			}
-		]
+		],
+		"skill": []
+	},
+
+	"theme": {
+		"0": {
+			"layout": {
+				"padding": {
+					"sm": ".5em",
+					"lg": "1em"
+				},
+				"margin": {
+					"sm": "1em",
+					"lg": "1.5em"
+				}
+			},
+			"color": {
+				"primary": "#ccc",
+				"secondary": "wheat",
+				"text": {
+					"h": "purple",
+					"p": "green",
+					"link": "red"
+				},
+				"layout": {
+					"primary": "#ccc",
+					"secondary": "wheat"
+				}
+			}
+		}
 	}
 }

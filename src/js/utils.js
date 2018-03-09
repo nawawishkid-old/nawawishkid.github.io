@@ -23,6 +23,10 @@ export function config(key) {
 	return dotNotation(key, config); //config[key];
 }
 
+export function theme(key, name) {
+	return config(`theme.${name}.${key}`);
+}
+
 export function Locale() {
 	//console.log('Locale()');
 
