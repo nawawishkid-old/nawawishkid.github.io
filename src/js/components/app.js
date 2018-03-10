@@ -5,6 +5,7 @@ import DropdownItem from './DropdownItem';
 import ContactItem from './ContactItem';
 import Route from './Route';
 import Page from './Page';
+import Rush from './Rush';
 import {config, theme, Locale} from '../utils';
 
 const locale = new Locale();
@@ -14,26 +15,33 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			language: 'en_US',
+			language: 'en-US',
 			status: 'composing',
+			steps: {
+				test: 0,
+			},
+			targets: {
+				test: '0,0',
+			},
 			step: 0,
 			pageURL: '/',
 		}
 
 		window.addEventListener('popstate', () => {
 			console.log('popstate');
-			console.log(history.state);
-			this.setState({pageURL: history.state})
+
+			this.setState({pageURL: location.pathname})
 		});
 	}
 
 	// Life cycle method
 	componentDidMount() {
-		setTimeout(() => this.setState({step: 1}), 500); // push page
-		setTimeout(() => this.setState({step: 2}), 800); // compose page fraction
-		setTimeout(() => this.setState({step: 3}), 3360); // set page background-color
-		setTimeout(() => this.setState({step: 4}), 3800); // hide page fraction
-		setTimeout(() => this.setState({step: 5}), 6360); // pull page
+		//setTimeout(() => this.setState({steps: {test: 0}, targets: {test: '0,0'}}), 1000);
+		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 1000);
+		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 3000);
+		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 5000);
+		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 7000);
+		//this.__pageComposingQueue('intro', [500, 800, ]);
 	}
 
 	changeAppLang(ev) {
@@ -43,8 +51,28 @@ class App extends Component {
 		this.setState({language: lang});
 	}
 
-	onChangePage(ev) {
-		this.setState({pageURL: history.state});
+	onNavClick(ev) {
+		this.setState({pageURL: location.pathname});
+	}
+
+	__pageComposingQueue(taskName, queueArray) {
+		queueArray.forEach((time, index) => {
+			let step = { [taskName]: index + 1 }
+
+			if (queueArray[queueArray.length - index]) {
+
+			}
+			setTimeout(() => this.setState(step), time);
+		});
+		setTimeout(() => this.setState({step: 1}), 500); // push page
+		setTimeout(() => this.setState({step: 2}), 800); // compose page fraction
+		setTimeout(() => this.setState({step: 3}), 3360); // set page background-color
+		setTimeout(() => this.setState({step: 4}), 3800); // hide page fraction, compose page components
+		setTimeout(() => this.setState({step: 5}), 6360); // pull page
+	}
+
+	__pageComposingClassHandler() {
+
 	}
 
 	render() {
@@ -58,7 +86,6 @@ class App extends Component {
 		const styles = {
 			app: {
 				background: s.step >= 3 ? theme('color.layout.primary', '0') : 'white',
-				padding: theme('layout.padding.lg', '0'),
 			},
 			columns: {
 				display: s.step >= 4 ? 'none' : 'flex',
@@ -95,13 +122,18 @@ class App extends Component {
 					}
 				</div>
 
-				<header className="react-header row">
+				<header className="react-header">
+					<h1>{locale.get(`page.${this.state.pageURL.replace('/', '')}`)}</h1>
+
+					<nav className="nav">
+						<Route href="/" onClick={this.onNavClick.bind(this)}>{locale.get('page.')}</Route>
+						<Route href="/about" onClick={this.onNavClick.bind(this)}>{locale.get('page.about')}</Route>
+						<Route href="/contact" onClick={this.onNavClick.bind(this)}>{locale.get('page.contact')}</Route>
+					</nav>
+
 					<Dropdown
 						label={locale.get('localeName')}
 						id="langButton"
-						wrapperStyle={{
-							marginLeft: 'auto'
-						}}
 					>
 						{
 							Object.entries(locale.getLocales())
@@ -132,18 +164,32 @@ class App extends Component {
 					}
 				</div>
 
-				<Route href="/contact" onClick={this.onChangePage.bind(this)}>Contact</Route>
-				<Route href="/about" onClick={this.onChangePage.bind(this)}>About</Route>
-				<Route href="/" onClick={this.onChangePage.bind(this)}>Home</Route>
+				<Rush id="test"
+					  step={this.state.steps.test}
+					  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
+					  duration={2}
+					  timeFunc="ease-out"
+					  sequentialTarget={true}
+					  initialTarget="100px,0"
+				>
+					<div style={{
+						background: 'red',
+						width: '100px',
+						height: '100px'
+					}}></div>
+				</Rush>
 
 				<div style={styles.appContent}
 					 className="react-app-page"
 					 id="page"
 				>
 
-					 <Page url="/about">
-					 	'hahahaha'
-					 </Page>
+					<Page url="/">
+						Home
+					</Page>
+					<Page url="/about">
+						About
+					</Page>
 
 					<Page url="/contact">
 						<article>

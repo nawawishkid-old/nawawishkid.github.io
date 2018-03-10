@@ -41,6 +41,6 @@ export function Locale() {
 	}
 
 	this.get = function(keyword) {
-		return this.locale[this.getLang()][keyword];
+		return dotNotation(keyword, this.locale[this.getLang()]);
 	}
 }

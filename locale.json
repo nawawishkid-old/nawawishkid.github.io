@@ -1,11 +1,21 @@
 {
 	"en-US": {
+		"page": {
+			"": "Home",
+			"contact": "Contact",
+			"about": "About"
+		},
 		"intro": "",
 		"localeName": "English",
 		"selfDesc": "I've learned web development as a hobby for almost 2 years, and now I want to start a web development career."
 	},
 
 	"th-TH": {
+		"page": {
+			"": "หน้าแรก",
+			"contact": "ติดต่อ",
+			"about": "เกี่ยวกับ"
+		},
 		"intro": "",
 		"localeName": "ไทย",
 		"selfDesc": "ผมหัดทำเว็บเป็นงานอดิเรกมาเกือบ 2 ปี และตอนนี้ก็อยากเริ่มอาชีพ web development แล้ว"

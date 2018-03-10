@@ -27,6 +27,21 @@
 		"skill": []
 	},
 
+	"page": [
+		{
+			"name": "Home",
+			"url": "/"
+		},
+		{
+			"name": "Contact",
+			"url": "/contact"
+		},
+		{
+			"name": "About",
+			"url": "/about"
+		}
+	],
+
 	"theme": {
 		"0": {
 			"layout": {
