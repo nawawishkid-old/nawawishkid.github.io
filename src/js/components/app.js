@@ -19,9 +19,11 @@ class App extends Component {
 			status: 'composing',
 			steps: {
 				test: 0,
+				test2: 0,
 			},
 			targets: {
 				test: '0,0',
+				test2: '0,0',
 			},
 			step: 0,
 			pageURL: '/',
@@ -37,10 +39,16 @@ class App extends Component {
 	// Life cycle method
 	componentDidMount() {
 		//setTimeout(() => this.setState({steps: {test: 0}, targets: {test: '0,0'}}), 1000);
-		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 1000);
-		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 3000);
-		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 5000);
-		setTimeout(() => this.setState({steps: {test: this.state.steps.test + 1}}), 7000);
+		const newState = () => {
+			let steps = {...this.state.steps};
+			steps.test = this.state.steps.test + 1;
+			return {steps};
+		}
+
+		setTimeout(() => this.setState(newState()), 500);
+		setTimeout(() => this.setState(newState()), 1000);
+		setTimeout(() => this.setState(newState()), 1500);
+		setTimeout(() => this.setState(newState()), 2000);
 		//this.__pageComposingQueue('intro', [500, 800, ]);
 	}
 
@@ -76,7 +84,7 @@ class App extends Component {
 	}
 
 	render() {
-		console.log('step: ' + this.state.step);
+		console.log('step.test: ' + this.state.steps.test);
 
 		const s = this.state;
 		const classes = {
@@ -100,7 +108,10 @@ class App extends Component {
 			<div style={styles.app}
 				 className={`react-app ${s.status} ${classes.app}`}>
 
-				<div style={styles.columns}
+				<div style={{
+						...styles.columns,
+						display: 'none'
+					 }}
 					 className={`composing-columns ${classes.columns}`}>
 					{
 						[...Array(24).keys()].map((item, index) => {
@@ -164,16 +175,41 @@ class App extends Component {
 					}
 				</div>
 
+				<button onClick={() => {
+					let rand = () => Math.round(Math.random() * 100),
+						state = {...this.state};
+
+					state.steps.test2 = this.state.steps.test2 + 1;
+					//state.targets.test2 = `${rand()}px,${rand()}px`;
+
+					this.setState(state);
+				}}>Click me!</button>
+
 				<Rush id="test"
 					  step={this.state.steps.test}
 					  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
-					  duration={2}
+					  duration={0.5}
 					  timeFunc="ease-out"
 					  sequentialTarget={true}
 					  initialTarget="100px,0"
 				>
 					<div style={{
 						background: 'red',
+						width: '100px',
+						height: '100px'
+					}}></div>
+				</Rush>
+
+				<Rush id="test2"
+					  step={this.state.steps.test2}
+					  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
+					  duration={0.5}
+					  timeFunc="ease-out"
+					  sequentialTarget={true}
+					  initialTarget="0,100px"
+				>
+					<div style={{
+						background: 'purple',
 						width: '100px',
 						height: '100px'
 					}}></div>

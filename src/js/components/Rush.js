@@ -12,31 +12,32 @@ export default class Rush extends Component {
 	 * Generic Methods
 	 */
 	_setState(nextProps = null) {
-		//console.log('Rush._setState()');
+		console.log('Rush._setState()');
 		const p = nextProps || this.props;
 		let target = this._makeTargetsArray(p),
-			step = p.step > target.length - 1 ? target.length - 1 : p.step;
+			step = p.step > target.length - 1 ? p.step % (target.length - 1) : p.step;
 
-		//console.log(step);
+		console.log(p.step, step);
 
 		this.setState({
 			step: step,
 			target: target,
 			sequentialTarget: p.sequentialTarget,
+			rush: true,
 			//currentPosition: p.step == 0 ? target[0] : target[p.step]
 		}, () => console.log('state: ', this.state));
 	}
 
 	_setStyle() {
-		//console.log('Rush._setStyle()');
+		console.log('Rush._setStyle()');
 		const currentTarget = this._getCurrentTarget();
-
+		console.log(currentTarget);
 		this.style = {
 			transition: `transform ${this.props.duration}s ${this.props.timeFunc} ${this.props.delay}s`,
 			transform: `translate(${currentTarget[0]},${currentTarget[1]})`
 		}
 
-		//console.log(this.style);
+		console.log(this.style);
 	}
 
 	_getNodeRect() {
@@ -46,12 +47,14 @@ export default class Rush extends Component {
 
 	_rush() {
 		//console.log('Rush._rush()');
+		// Is rushable? no? return!
+		//if (!this.state.rush) return;
 
 		let target = this.state.sequentialTarget
 					 ? this._makeTargetSequential(this._getCurrentTarget())
 					 : this._getCurrentTarget();
 
-		//console.log(target);
+		console.log(target);
 		//console.log(this.node.style.transform);
 
 		this.node.style.transform = `translate(${target[0]}, ${target[1]})`;
@@ -60,12 +63,15 @@ export default class Rush extends Component {
 
 	_getCurrentTarget() {
 		//console.log('Rush._getCurrentTarget()');
+		console.log(this.state.target, this.state.step);
 		return this.state.target[this.state.step];
 	}
 
 	_makeTargetsArray(nextProps = null) {
 		let p = nextProps || this.props,
 			target = typeof p.target === 'string' ? [p.target] : p.target;
+
+		//if ()
 
 		target.unshift(p.initialTarget);
 
@@ -137,9 +143,13 @@ export default class Rush extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		//console.log('Rush.componentWillReceiveProps()');
-		if (this.props.step === nextProps.step) return;
-		//console.log(nextProps);
+		console.log('Rush.componentWillReceiveProps()');
+		//
+		if (this.props.step === nextProps.step) {
+			this.setState({rush: false}, () => console.log('rush: ', this.state.rush));
+			return;
+		}
+		console.log(nextProps);
 
 		this._setState(nextProps);
 		//this._setCurrentTranslatePosition();
@@ -152,7 +162,7 @@ export default class Rush extends Component {
 	}
 
 	render() {
-		//console.log('Rush.render()');
+		console.log('Rush.render()');
 
 		const p = this.props;
 
