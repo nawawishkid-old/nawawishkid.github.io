@@ -11,16 +11,17 @@
 			"description": "I've learned web development as a hobby for almost 2 years, and now I want to start a web development career.",
 			"contact": "",
 			"language": {
-				"html": "",
-				"css": "",
-				"javascript": "",
-				"php": "",
-				"mysql": ""
+				"html": "lorem ipsum dolor",
+				"css": "lorem ipsum dolor",
+				"javascript": "lorem ipsum dolor",
+				"php": "lorem ipsum dolor",
+				"mysql": "lorem ipsum dolor"
 			},
 			"tool": {
 				"ubuntu": ""
 			}
-		}
+		},
+		"since": "since"
 	},
 
 	"th-TH": {
@@ -35,15 +36,16 @@
 			"description": "ผมหัดทำเว็บเป็นงานอดิเรกมาเกือบ 2 ปี และตอนนี้ก็อยากเริ่มอาชีพ web development แล้ว",
 			"contact": "",
 			"language": {
-				"html": "",
-				"css": "",
-				"javascript": "",
-				"php": "",
-				"mysql": ""
+				"html": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
+				"css": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
+				"javascript": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
+				"php": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
+				"mysql": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า"
 			},
 			"tool": {
 				"ubuntu": ""
 			}
-		}
+		},
+		"since": "ตั้งแต่"
 	}
 }

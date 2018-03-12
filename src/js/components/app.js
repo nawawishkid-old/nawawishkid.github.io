@@ -86,6 +86,7 @@ class App extends Component {
 												  start={lang.start}
 												  desc={locale.get(`content.language.${lang.name.toLowerCase()}`)} 
 												  libs={lang.libs}
+												  logo={lang.logo}
 										/>
 							})
 						}

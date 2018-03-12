@@ -27,7 +27,8 @@
 		"language": [
 			{
 				"name": "HTML",
-				"start": "2015/11"
+				"start": "2015/11",
+				"logo": "logo-html.png"
 			},
 			{
 				"name": "CSS",
@@ -35,9 +36,11 @@
 				"libs": [
 					{
 						"name": "Bootstrap",
-						"start": "2015/11"
+						"start": "2015/11",
+						"logo": "logo-bootstrap.png"
 					}
-				]
+				],
+				"logo": "logo-css.png"
 			},
 			{
 				"name": "JavaScript",
@@ -45,17 +48,21 @@
 				"libs": [
 					{
 						"name": "jQuery",
-						"start": "2015/11"
+						"start": "2015/11",
+						"logo": "logo-jquery.png"
 					}, 
 					{
 						"name": "React",
-						"start": "2018/01"
+						"start": "2018/01",
+						"logo": "logo-react.png"
 					},
 					{
 						"name": "Material UI",
-						"start": "2018/01"
+						"start": "2018/01",
+						"logo": "logo-mui.png"
 					}
-				]
+				],
+				"logo": "logo-js.png"
 			},
 			{
 				"name": "PHP",
@@ -63,27 +70,33 @@
 				"libs": [
 					{
 						"name": "Laravel",
-						"start": "2017/07"
+						"start": "2017/07",
+						"logo": "logo-laravel.png"
 					}
-				]
+				],
+				"logo": "logo-php.png"
 			},
 			{
 				"name": "MySQL",
-				"start": "2016/02"
+				"start": "2016/02",
+				"logo": "logo-mysql.png"
 			}
 		],
 		"tool": [
 			{
 				"name": "Git",
-				"start": "2018/01"
+				"start": "2018/01",
+				"logo": ""
 			},
 			{
 				"name": "GitHub.com",
-				"start": "2017/03"
+				"start": "2017/03",
+				"logo": ""
 			},
 			{
 				"name": "Linux CLI (Ubuntu)",
-				"start": "2017/07"
+				"start": "2017/07",
+				"logo": ""
 			}
 		]
 	},
