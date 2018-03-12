@@ -8,4 +8,4 @@ try {
 	require('bootstrap');
 } catch (e) {}
 
-document.querySelector('html').lang = config('app.language');
+document.documentElement.lang = config('app.language');

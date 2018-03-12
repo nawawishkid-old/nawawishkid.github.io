@@ -33,7 +33,7 @@ export function Locale() {
 	this.locale = require('../../locale.json');
 
 	this.getLang = function() {
-		return document.querySelector('html').lang || config('app.language');
+		return document.documentElement.lang || config('app.language');
 	}
 
 	this.getLocales = function() {

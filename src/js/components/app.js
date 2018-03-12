@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import Dropdown from './Dropdown';
 import DropdownItem from './DropdownItem';
 import ContactItem from './ContactItem';
-import Route from './Route';
-import Page from './Page';
-import Rush from './Rush';
+import LanguageItem from './LanguageItem';
 import {config, theme, Locale} from '../utils';
 
 const locale = new Locale();
@@ -15,17 +13,7 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			language: 'en-US',
-			status: 'composing',
-			steps: {
-				test: 0,
-				test2: 0,
-			},
-			targets: {
-				test: '0,0',
-				test2: '0,0',
-			},
-			step: 0,
+			language: document.documentElement.lang,
 			pageURL: '/',
 		}
 
@@ -38,18 +26,6 @@ class App extends Component {
 
 	// Life cycle method
 	componentDidMount() {
-		//setTimeout(() => this.setState({steps: {test: 0}, targets: {test: '0,0'}}), 1000);
-		/*const newState = () => {
-			let steps = {...this.state.steps};
-			steps.test = this.state.steps.test + 1;
-			return {steps};
-		}
-
-		setTimeout(() => this.setState(newState()), 500);
-		setTimeout(() => this.setState(newState()), 1000);
-		setTimeout(() => this.setState(newState()), 1500);
-		setTimeout(() => this.setState(newState()), 2000);*/
-		//this.__pageComposingQueue('intro', [500, 800, ]);
 	}
 
 	changeAppLang(ev) {
@@ -63,84 +39,19 @@ class App extends Component {
 		this.setState({pageURL: location.pathname});
 	}
 
-	__pageComposingQueue(taskName, queueArray) {
-		queueArray.forEach((time, index) => {
-			let step = { [taskName]: index + 1 }
-
-			if (queueArray[queueArray.length - index]) {
-
-			}
-			setTimeout(() => this.setState(step), time);
-		});
-		setTimeout(() => this.setState({step: 1}), 500); // push page
-		setTimeout(() => this.setState({step: 2}), 800); // compose page fraction
-		setTimeout(() => this.setState({step: 3}), 3360); // set page background-color
-		setTimeout(() => this.setState({step: 4}), 3800); // hide page fraction, compose page components
-		setTimeout(() => this.setState({step: 5}), 6360); // pull page
-	}
-
-	__pageComposingClassHandler() {
-
-	}
-
 	render() {
-		console.log('step.test: ' + this.state.steps.test);
 
 		const s = this.state;
-		const classes = {
-			app: s.step > 0 && s.step < 5 ? 'active' : '',
-			columns: s.step > 1 && s.step < 5 ? 'active' : ''
-		};
-		const styles = {
-			app: {
-				background: s.step >= 3 ? theme('color.layout.primary', '0') : 'white',
-			},
-			columns: {
-				display: s.step >= 4 ? 'none' : 'flex',
-			},
-			appContent: {
-				display: s.step >= 4 ? 'block' : 'none',
-			}
-		}
-		let counter = 0;
 
 		return (
-			<div style={styles.app}
-				 className={`react-app ${s.status} ${classes.app}`}>
+			<div className={`app`}>
 
-				<div style={{
-						...styles.columns,
-						display: 'none'
-					 }}
-					 className={`composing-columns ${classes.columns}`}>
-					{
-						[...Array(24).keys()].map((item, index) => {
-							let x = s.step >= 2 ? 0 : '500px', //index > 24/2 ? '500px' : '-500px';
-								y = s.step >=2 ? 0 : index % 2 != 0 ? '-1000px' : '1000px';
-
-							counter += 0.05;
-
-							return <div className={`composing-columns-column`}
-										style={{
-										}}
-										key={index}
-									></div>
-						})
-					}
-				</div>
-
-				<header className="react-header">
-					<h1>{locale.get(`page.${this.state.pageURL.replace('/', '')}`)}</h1>
-
-					<nav className="nav">
-						<Route href="/" onClick={this.onNavClick.bind(this)}>{locale.get('page.')}</Route>
-						<Route href="/about" onClick={this.onNavClick.bind(this)}>{locale.get('page.about')}</Route>
-						<Route href="/contact" onClick={this.onNavClick.bind(this)}>{locale.get('page.contact')}</Route>
-					</nav>
+				<header className="header">
 
 					<Dropdown
 						label={locale.get('localeName')}
 						id="langButton"
+						wrapperClassName="ml-auto"
 					>
 						{
 							Object.entries(locale.getLocales())
@@ -158,7 +69,42 @@ class App extends Component {
 					</Dropdown>
 				</header>
 
-				<div className="react-contact">
+				<div className="profile-image container">
+					<img src="https://pbs.twimg.com/profile_images/967818388759171073/JQ2nc_Dr_400x400.jpg" alt="My profile picture" />
+				</div>
+
+				<div className="description container read">
+					<p className="">{locale.get('content.description')}</p>
+				</div>
+
+				<div className="language container">
+					<div className="w-100">
+						{
+							config('content.language').map((lang, index) => {
+								return <LanguageItem key={index}
+												  name={lang.name}
+												  start={lang.start}
+												  desc={locale.get(`content.language.${lang.name.toLowerCase()}`)} 
+												  libs={lang.libs}
+												  logo={lang.logo}
+										/>
+							})
+						}
+					</div>
+				</div>
+
+				<div className="technology container read">
+					<div>
+						{
+							config('content.tool').map((tool, index) => {
+								console.log(tool);
+								return <p key={index}>{tool.name}</p>
+							})
+						}
+					</div>
+				</div>
+
+				<div className="contact container">
 					{
 						config('content.contact').map((item, index) => {
 							return <ContactItem key={index}
@@ -166,36 +112,9 @@ class App extends Component {
 												icon={item.icon} 
 												height={32} 
 												width={32 * (item.size[0] / item.size[1])}
-												className="react-contact-item" />
+												className="contact-item" />
 						})
 					}
-				</div>
-
-				<div id="test"
-					style={{
-						background: 'purple',
-						width: '100px',
-						height: '100px'
-					}}
-				></div>
-
-				<div style={styles.appContent}
-					 className="react-app-page"
-					 id="page"
-				>
-
-					<Page url="/">
-						Home
-					</Page>
-					<Page url="/about">
-						About
-					</Page>
-
-					<Page url="/contact">
-						<article>
-							{locale.get('selfDesc')}
-						</article>
-					</Page>
 				</div>
 			</div>
 		);
