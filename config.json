@@ -24,7 +24,68 @@
 				"size": [64, 64]
 			}
 		],
-		"skill": []
+		"language": [
+			{
+				"name": "HTML",
+				"start": "2015/11"
+			},
+			{
+				"name": "CSS",
+				"start": "2015/11",
+				"libs": [
+					{
+						"name": "Bootstrap",
+						"start": "2015/11"
+					}
+				]
+			},
+			{
+				"name": "JavaScript",
+				"start": "2015/11",
+				"libs": [
+					{
+						"name": "jQuery",
+						"start": "2015/11"
+					}, 
+					{
+						"name": "React",
+						"start": "2018/01"
+					},
+					{
+						"name": "Material UI",
+						"start": "2018/01"
+					}
+				]
+			},
+			{
+				"name": "PHP",
+				"start": "2016/02",
+				"libs": [
+					{
+						"name": "Laravel",
+						"start": "2017/07"
+					}
+				]
+			},
+			{
+				"name": "MySQL",
+				"start": "2016/02"
+			}
+		],
+		"tool": [
+			{
+				"name": "Git",
+				"start": "2018/01"
+			},
+			{
+				"name": "GitHub.com",
+				"start": "2017/03"
+			},
+			{
+				"name": "Linux CLI (Ubuntu)",
+				"start": "2017/07"
+			}
+		]
 	},
 
 	"page": [

@@ -6,14 +6,19 @@
 	--text-p: orange;
 	--text-link: red;
 	--padding: .5em 1em;
+	--font-size: 16px;
+	--line-height: 1.5;
 }
 
 html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--primary-color);
-  color: var(--text-p);
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background: var(--primary-color);
+	color: var(--text-p);
+	font-size: var(--font-size);
+	overflow: hidden;
+	line-height: var(--line-height);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -31,6 +36,12 @@ a {
 	color: var(--text-link);
 }
 
+/* Utilities class */
+.read {
+	font-size: 21px;
+	max-width: 700px;
+}
+
 /* Bootstrap override */
 .row {
 	margin: 0;
@@ -38,92 +49,69 @@ a {
 [class^=col] {
 	padding: 0;
 }
+.container {
+	margin-bottom: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 /* App Container */
 #app {
-	width: 100%;
+	width: calc(100% + 50px); /* Push scroll bar away */
 	height: 100%;
 	background: #f2f2f2;
-	overflow: hidden;
+	overflow-y: scroll;
 }
 
-.react-app {
-	width: 100%;
-	height: 100%;
+.app {
+	width: 100vw; /* Just full screen so you can't see #app scroll bar */
 	position: relative;
 	transition: all .6s;
 }
-.react-app.composing {
-	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
-}
-.react-app.composing.active {
-	transform: scale(.8,.8);
+
+/* Profile image */
+.profile-image img {
+	height: 100px;
+	border-radius: 50%;
 }
 
-.composing-columns {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.composing-columns.active {
-	display: flex;
-}
-.composing-columns-column {
-	width: 8.33%;
-	height: 100%;
-	background: white;
-	/*transition: all 1s ease-out;*/
-}
-.composing-columns-column:nth-child(odd) {
-	/*transform: translate(0, -3000px);*/
-}
-.composing-columns-column:nth-child(even) {
-	/*transform: translate(0, 3000px);*/
-}
-.composing-columns.active .composing-columns-column {
-	/*transform: translate(0,0);*/
+/* Description */
+.description p {
+	width: 90%;
+	margin: auto;
+	text-indent: 1rem;
 }
 
-@media screen and (orientation: portrait) {
-	.react-app {
-		background: wheat;
-	}
-}
 
 /* Header */
-.react-header {
+.header {
 	display: flex;
 	align-items: center;
 	padding: var(--padding);
-	overflow: hidden;
 }
-.react-header h1 {
+.header h1 {
 	padding: 1rem;
     margin: 0;
 }
 
-/* Nav */
-.nav {
-	margin-left: auto;
+/* Language */
+.language.container {
+	max-width: 700px;
 }
-.nav > * {
-	padding: var(--padding);
+.language-item-header {
+	border: 1px solid var(--text-p);
+	border-radius: 5px;
+}
+.language-item-header > a {
+	color: var(--text-p);
+	text-decoration: none;
+}
+.language-item-js {
 }
 
 /* Contact */
-.react-contact {
-    position: absolute;
-    right: 0;
-    bottom: 10%;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 999;
-}
-.react-contact-item {
+.contact-item {
 	width: 32px;
 	height: 32px;
 	display: inline-block;
@@ -132,33 +120,24 @@ a {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	opacity: .3;
     transition: opacity .15s cubic-bezier(1,0,1,0), transform .15s cubic-bezier(1,0,0.6,3);
 }
 
+
+/* Responsiveness */
 @media screen and (min-width: 768px) {
-	.react-contact-item:hover {
+
+	.contact-item {
+		opacity: .3;
+	}
+	.contact-item:hover {
 		opacity: 1;
 	    transform: scale(1.25, 1.25);
 	}
 }
 
-/**
- * ANIMATIONS
- */
-@keyframes page-composing {
-	0% {
-		box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.5);
+@media screen and (orientation: portrait) {
+	.app {
+		background: wheat;
 	}
-	25% {
-		transform: scale(.8,.8);
-	}
-}
-
-@keyframes flow {
-	0% {transform: scale(.1,.1) skew(70deg,15deg) translate(-100%,-100%);}
-	50% {transform: scale(.25,.25) skew(60deg,15deg) translate(-20%,-50%);}
-	75% {transform: scale(.4,.4) skew(50deg,15deg) translate(-5%,-25%);}
-	90% {transform: scale(.5,.5) skew(10deg,3deg) translate(0%,-10%);}
-	100% {transform: scale(1,1) skew(0deg,0deg) translate(0,0);}
 }

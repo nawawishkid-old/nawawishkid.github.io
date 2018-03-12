@@ -7,7 +7,20 @@
 		},
 		"intro": "",
 		"localeName": "English",
-		"selfDesc": "I've learned web development as a hobby for almost 2 years, and now I want to start a web development career."
+		"content": {
+			"description": "I've learned web development as a hobby for almost 2 years, and now I want to start a web development career.",
+			"contact": "",
+			"language": {
+				"html": "",
+				"css": "",
+				"javascript": "",
+				"php": "",
+				"mysql": ""
+			},
+			"tool": {
+				"ubuntu": ""
+			}
+		}
 	},
 
 	"th-TH": {
@@ -18,6 +31,19 @@
 		},
 		"intro": "",
 		"localeName": "ไทย",
-		"selfDesc": "ผมหัดทำเว็บเป็นงานอดิเรกมาเกือบ 2 ปี และตอนนี้ก็อยากเริ่มอาชีพ web development แล้ว"
+		"content": {
+			"description": "ผมหัดทำเว็บเป็นงานอดิเรกมาเกือบ 2 ปี และตอนนี้ก็อยากเริ่มอาชีพ web development แล้ว",
+			"contact": "",
+			"language": {
+				"html": "",
+				"css": "",
+				"javascript": "",
+				"php": "",
+				"mysql": ""
+			},
+			"tool": {
+				"ubuntu": ""
+			}
+		}
 	}
 }
