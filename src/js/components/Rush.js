@@ -12,12 +12,12 @@ export default class Rush extends Component {
 	 * Generic Methods
 	 */
 	_setState(nextProps = null) {
-		console.log('Rush._setState()');
+		//console.log('Rush._setState()');
 		const p = nextProps || this.props;
 		let target = this._makeTargetsArray(p),
 			step = p.step > target.length - 1 ? p.step % (target.length - 1) : p.step;
 
-		console.log(p.step, step);
+		//console.log(p.step, step);
 
 		this.setState({
 			step: step,
@@ -25,19 +25,19 @@ export default class Rush extends Component {
 			sequentialTarget: p.sequentialTarget,
 			rush: true,
 			//currentPosition: p.step == 0 ? target[0] : target[p.step]
-		}, () => console.log('state: ', this.state));
+		});
 	}
 
 	_setStyle() {
-		console.log('Rush._setStyle()');
+		//console.log('Rush._setStyle()');
 		const currentTarget = this._getCurrentTarget();
-		console.log(currentTarget);
+		//console.log(currentTarget);
 		this.style = {
 			transition: `transform ${this.props.duration}s ${this.props.timeFunc} ${this.props.delay}s`,
 			transform: `translate(${currentTarget[0]},${currentTarget[1]})`
 		}
 
-		console.log(this.style);
+		//console.log(this.style);
 	}
 
 	_getNodeRect() {
@@ -54,7 +54,7 @@ export default class Rush extends Component {
 					 ? this._makeTargetSequential(this._getCurrentTarget())
 					 : this._getCurrentTarget();
 
-		console.log(target);
+		//console.log(target);
 		//console.log(this.node.style.transform);
 
 		this.node.style.transform = `translate(${target[0]}, ${target[1]})`;
@@ -63,7 +63,7 @@ export default class Rush extends Component {
 
 	_getCurrentTarget() {
 		//console.log('Rush._getCurrentTarget()');
-		console.log(this.state.target, this.state.step);
+		//console.log(this.state.target, this.state.step);
 		return this.state.target[this.state.step];
 	}
 
@@ -143,13 +143,13 @@ export default class Rush extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log('Rush.componentWillReceiveProps()');
+		//console.log('Rush.componentWillReceiveProps()');
 		//
 		if (this.props.step === nextProps.step) {
-			this.setState({rush: false}, () => console.log('rush: ', this.state.rush));
+			this.setState({rush: false});
 			return;
 		}
-		console.log(nextProps);
+		//console.log(nextProps);
 
 		this._setState(nextProps);
 		//this._setCurrentTranslatePosition();
@@ -162,7 +162,7 @@ export default class Rush extends Component {
 	}
 
 	render() {
-		console.log('Rush.render()');
+		//console.log('Rush.render()');
 
 		const p = this.props;
 
@@ -224,3 +224,48 @@ Rush.defaultProps = {
 	containerStyle: {},
 	containerClass: '',
 }
+
+/**
+ * Examples
+ *
+	<button onClick={() => {
+		let rand = () => Math.round(Math.random() * 100),
+			state = {...this.state};
+
+		state.steps.test2 = this.state.steps.test2 + 1;
+		//state.targets.test2 = `${rand()}px,${rand()}px`;
+
+		this.setState(state);
+	}}>Click me!</button>
+
+	<Rush id="test"
+		  step={this.state.steps.test}
+		  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
+		  duration={0.5}
+		  timeFunc="ease-out"
+		  sequentialTarget={true}
+		  initialTarget="100px,0"
+	>
+		<div style={{
+			background: 'red',
+			width: '100px',
+			height: '100px'
+		}}></div>
+	</Rush>
+
+	<Rush id="test2"
+		  step={this.state.steps.test2}
+		  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
+		  duration={0.5}
+		  timeFunc="ease-out"
+		  sequentialTarget={true}
+		  initialTarget="0,100px"
+	>
+		<div style={{
+			background: 'purple',
+			width: '100px',
+			height: '100px'
+		}}></div>
+	</Rush>
+ *
+ */

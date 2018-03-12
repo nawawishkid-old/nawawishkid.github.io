@@ -75,16 +75,16 @@ a {
 	width: 8.33%;
 	height: 100%;
 	background: white;
-	transition: all 1s ease-out;
+	/*transition: all 1s ease-out;*/
 }
 .composing-columns-column:nth-child(odd) {
-	transform: translate(0, -3000px);
+	/*transform: translate(0, -3000px);*/
 }
 .composing-columns-column:nth-child(even) {
-	transform: translate(0, 3000px);
+	/*transform: translate(0, 3000px);*/
 }
 .composing-columns.active .composing-columns-column {
-	transform: translate(0,0);
+	/*transform: translate(0,0);*/
 }
 
 @media screen and (orientation: portrait) {

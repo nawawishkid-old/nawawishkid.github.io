@@ -39,7 +39,7 @@ class App extends Component {
 	// Life cycle method
 	componentDidMount() {
 		//setTimeout(() => this.setState({steps: {test: 0}, targets: {test: '0,0'}}), 1000);
-		const newState = () => {
+		/*const newState = () => {
 			let steps = {...this.state.steps};
 			steps.test = this.state.steps.test + 1;
 			return {steps};
@@ -48,7 +48,7 @@ class App extends Component {
 		setTimeout(() => this.setState(newState()), 500);
 		setTimeout(() => this.setState(newState()), 1000);
 		setTimeout(() => this.setState(newState()), 1500);
-		setTimeout(() => this.setState(newState()), 2000);
+		setTimeout(() => this.setState(newState()), 2000);*/
 		//this.__pageComposingQueue('intro', [500, 800, ]);
 	}
 
@@ -122,10 +122,6 @@ class App extends Component {
 
 							return <div className={`composing-columns-column`}
 										style={{
-											width: 100/24 + '%',
-											transition: `all .6s linear ${counter}s`,
-											background: theme('color.layout.primary', '0'),
-											transform: `translate(${x}, ${y})`
 										}}
 										key={index}
 									></div>
@@ -175,45 +171,13 @@ class App extends Component {
 					}
 				</div>
 
-				<button onClick={() => {
-					let rand = () => Math.round(Math.random() * 100),
-						state = {...this.state};
-
-					state.steps.test2 = this.state.steps.test2 + 1;
-					//state.targets.test2 = `${rand()}px,${rand()}px`;
-
-					this.setState(state);
-				}}>Click me!</button>
-
-				<Rush id="test"
-					  step={this.state.steps.test}
-					  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
-					  duration={0.5}
-					  timeFunc="ease-out"
-					  sequentialTarget={true}
-					  initialTarget="100px,0"
-				>
-					<div style={{
-						background: 'red',
-						width: '100px',
-						height: '100px'
-					}}></div>
-				</Rush>
-
-				<Rush id="test2"
-					  step={this.state.steps.test2}
-					  target={['100px,0', '0,100px', '-100px,0', '0,-100px']}
-					  duration={0.5}
-					  timeFunc="ease-out"
-					  sequentialTarget={true}
-					  initialTarget="0,100px"
-				>
-					<div style={{
+				<div id="test"
+					style={{
 						background: 'purple',
 						width: '100px',
 						height: '100px'
-					}}></div>
-				</Rush>
+					}}
+				></div>
 
 				<div style={styles.appContent}
 					 className="react-app-page"
