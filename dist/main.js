@@ -777,7 +777,7 @@ eval("var g;\r\n\r\n// This works in non-strict mode\r\ng = (function() {\r\n\tr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _animejs = __webpack_require__(/*! animejs */ \"./node_modules/animejs/anime.min.js\");\n\nvar _animejs2 = _interopRequireDefault(_animejs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconsole.log('ANIMEJS');\n\nconsole.log(_animejs2.default);\n\nvar test = (0, _animejs2.default)({\n\ttargets: '#test',\n\ttranslateX: 250,\n\tduration: 2000\n\t//loop: true\n});\n\nvar page = (0, _animejs2.default)({\n\ttargets: '.react-app',\n\tscale: 0.8,\n\tduration: 300,\n\tdelay: 500,\n\teasing: 'linear',\n\tautoplay: false\n});\n\n/*anime({\n\ttargets: '.composing-columns-column',\n\ttranslateX: (el, i, l) => {\n\t\tconsole.log(i, l);\n\t\treturn 50 * i;\n\t},\n\tdelay: 1000\n});*/\n\nwindow.addEventListener('scroll', function () {\n\tconsole.log('Scroll!');\n});\n\n//# sourceURL=webpack:///./src/js/anime.js?");
+eval("\n\nvar _animejs = __webpack_require__(/*! animejs */ \"./node_modules/animejs/anime.min.js\");\n\nvar _animejs2 = _interopRequireDefault(_animejs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconsole.log('ANIMEJS');\n\n//# sourceURL=webpack:///./src/js/anime.js?");
 
 /***/ }),
 
