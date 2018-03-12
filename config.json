@@ -1,0 +1,146 @@
+{
+	"app": {
+		"language": "th-TH"
+	},
+
+	"content": {
+		"contact": [
+			{
+				"name": "Twitter",
+				"url": "https://twitter.com/nawawishkid",
+				"icon": "src/img/icon-twitter2.png",
+				"size": [400, 400]
+			},
+			{
+				"name": "Medium",
+				"url": "https://medium.com/@nawawishkid",
+				"icon": "src/img/icon-medium.png",
+				"size": [390, 390]
+			},
+			{
+				"name": "GitHub",
+				"url": "https://github.com/nawawishkid",
+				"icon": "src/img/icon-github2.png",
+				"size": [64, 64]
+			}
+		],
+		"language": [
+			{
+				"name": "HTML",
+				"start": "2015/11",
+				"logo": "logo-html.png"
+			},
+			{
+				"name": "CSS",
+				"start": "2015/11",
+				"libs": [
+					{
+						"name": "Bootstrap",
+						"start": "2015/11",
+						"logo": "logo-bootstrap.png"
+					}
+				],
+				"logo": "logo-css.png"
+			},
+			{
+				"name": "JavaScript",
+				"start": "2015/11",
+				"libs": [
+					{
+						"name": "jQuery",
+						"start": "2015/11",
+						"logo": "logo-jquery.png"
+					}, 
+					{
+						"name": "React",
+						"start": "2018/01",
+						"logo": "logo-react.png"
+					},
+					{
+						"name": "Material UI",
+						"start": "2018/01",
+						"logo": "logo-mui.png"
+					}
+				],
+				"logo": "logo-js.png"
+			},
+			{
+				"name": "PHP",
+				"start": "2016/02",
+				"libs": [
+					{
+						"name": "Laravel",
+						"start": "2017/07",
+						"logo": "logo-laravel.png"
+					}
+				],
+				"logo": "logo-php.png"
+			},
+			{
+				"name": "MySQL",
+				"start": "2016/02",
+				"logo": "logo-mysql.png"
+			}
+		],
+		"tool": [
+			{
+				"name": "Git",
+				"start": "2018/01",
+				"logo": ""
+			},
+			{
+				"name": "GitHub.com",
+				"start": "2017/03",
+				"logo": ""
+			},
+			{
+				"name": "Linux CLI (Ubuntu)",
+				"start": "2017/07",
+				"logo": ""
+			}
+		]
+	},
+
+	"page": [
+		{
+			"name": "Home",
+			"url": "/"
+		},
+		{
+			"name": "Contact",
+			"url": "/contact"
+		},
+		{
+			"name": "About",
+			"url": "/about"
+		}
+	],
+
+	"theme": {
+		"0": {
+			"layout": {
+				"padding": {
+					"sm": ".5em",
+					"lg": "1em"
+				},
+				"margin": {
+					"sm": "1em",
+					"lg": "1.5em"
+				}
+			},
+			"color": {
+				"primary": "#ccc",
+				"secondary": "wheat",
+				"text": {
+					"h": "purple",
+					"p": "green",
+					"link": "red"
+				},
+				"layout": {
+					"primary": "#ccc",
+					"secondary": "wheat"
+				}
+			}
+		}
+	}
+}
