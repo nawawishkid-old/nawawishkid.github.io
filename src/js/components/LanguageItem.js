@@ -13,16 +13,17 @@ export default class LanguageItem extends Component {
 
 		return (
 			<div className="language-item-libs">
-				<p>-- Libraries/frameworks: --</p>
+				<p><b>-- Libraries/frameworks --</b></p>
 				{
-					p.libs.map(lib => {
+					p.libs.map((lib, index) => {
 						return (
-							<div className="language-item-lib mb-2 px-3">
-								<img className="mr-3"
+							<div className="language-item-lib mb-3 px-1 px-sm-3" key={index}>
+								<img className="mr-1 mr-md-3"
 									 src={`/src/img/${lib.logo}`}
 									 alt={`${lib.name} logo`} 
 								/>
-								{lib.name} -- {lib.start}
+								<b>{lib.name}</b> 
+								<small className="float-right">{locale.get('common.since').toLowerCase() + ' ' + lib.start}</small>
 							</div>
 						)
 					})
@@ -57,18 +58,18 @@ export default class LanguageItem extends Component {
 								 src={`src/img/${p.logo}`} 
 								 alt={`${p.name} logo`} 
 							/>
-							<h3 style={p.nameStyle}>
+							<h4 style={p.nameStyle}>
 								{p.name}
-							</h3>
+							</h4>
 						</div>
 						<small className="language-item-start float-right" style={p.startStyle}>
-							{locale.get('since') + ' ' + p.start}
+							{locale.get('common.since').toLowerCase() + ' ' + p.start}
 						</small>
 					</a>
 				</div>
 
 				<div id={contentId} className="collapse">
-					<div className="language-item-detail p-3"
+					<div className="language-item-detail p-2 p-sm-3"
 					 	 style={p.descStyle}
 					>
 						<p className="language-item-desc">{p.desc}</p>

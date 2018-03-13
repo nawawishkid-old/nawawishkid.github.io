@@ -14,10 +14,10 @@ export default class ContactItem extends Component {
 			link: {
 
 			},
-			icon: {
+			logo: {
 				width: this.props.width + 'px',
 				height: this.props.height + 'px',
-				backgroundImage: `url(${this.props.icon})`,
+				backgroundImage: `url(${this.props.logo})`,
 				/*display: 'inline-block',
 				backgroundPosition: 'center',
 				backgroundRepeat: 'no-repeat',
@@ -28,11 +28,11 @@ export default class ContactItem extends Component {
 
 	render() {
 		const p = this.props;
-		//console.log({...this.styles.icon});
+		//console.log({...this.styles.logo});
 
 		return (
 			<a href={p.url} 
-			   style={{...this.styles.icon, ...p.style}}
+			   style={{...this.styles.logo, ...p.style}}
 			   target="_blank"
 			   className={p.className}
 			></a>

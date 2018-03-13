@@ -5,7 +5,7 @@
 			"contact": "Contact",
 			"about": "About"
 		},
-		"intro": "",
+		"devMode": "This page is being develop. Get back soon :)",
 		"localeName": "English",
 		"content": {
 			"description": "I've learned web development as a hobby for almost 2 years, and now I want to start a web development career.",
@@ -18,10 +18,16 @@
 				"mysql": "lorem ipsum dolor"
 			},
 			"tool": {
-				"ubuntu": ""
+				"git": "",
+				"github": "",
+				"linux": ""
 			}
 		},
-		"since": "since"
+		"common": {
+			"since": "Since",
+			"languages": "Languages",
+			"others": "Others"
+		}
 	},
 
 	"th-TH": {
@@ -30,7 +36,7 @@
 			"contact": "ติดต่อ",
 			"about": "เกี่ยวกับ"
 		},
-		"intro": "",
+		"devMode": "เพจนี้ยังไม่เสร็จ แล้วกลับมาดูใหม่นะครับ :)",
 		"localeName": "ไทย",
 		"content": {
 			"description": "ผมหัดทำเว็บเป็นงานอดิเรกมาเกือบ 2 ปี และตอนนี้ก็อยากเริ่มอาชีพ web development แล้ว",
@@ -43,9 +49,15 @@
 				"mysql": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า"
 			},
 			"tool": {
-				"ubuntu": ""
+				"git": "",
+				"github": "",
+				"linux": ""
 			}
 		},
-		"since": "ตั้งแต่"
+		"common": {
+			"since": "ตั้งแต่",
+			"languages": "ภาษา",
+			"others": "อื่น ๆ"
+		}
 	}
 }

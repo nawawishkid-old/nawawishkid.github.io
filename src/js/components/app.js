@@ -15,6 +15,7 @@ class App extends Component {
 		this.state = {
 			language: document.documentElement.lang,
 			pageURL: '/',
+			env: config('app.env')
 		}
 
 		window.addEventListener('popstate', () => {
@@ -39,12 +40,22 @@ class App extends Component {
 		this.setState({pageURL: location.pathname});
 	}
 
+	renderDevEnvSign() {
+		return (
+			<div className="dev-mode-sign d-flex justify-content-center align-items-center text-center px-3 py-2 mb-3">
+				{locale.get('devMode')}
+			</div>
+		)
+	}
+
 	render() {
 
 		const s = this.state;
 
 		return (
 			<div className={`app`}>
+
+				{this.state.env === 'dev' ? this.renderDevEnvSign() : ''}
 
 				<header className="header">
 
@@ -70,7 +81,7 @@ class App extends Component {
 				</header>
 
 				<div className="profile-image container">
-					<img src="https://pbs.twimg.com/profile_images/967818388759171073/JQ2nc_Dr_400x400.jpg" alt="My profile picture" />
+					<img src={config('content.profileImage')} alt="My profile picture" />
 				</div>
 
 				<div className="description container read">
@@ -79,6 +90,9 @@ class App extends Component {
 
 				<div className="language container">
 					<div className="w-100">
+						<div className="read mb-4">
+							<h2>{locale.get('common.languages')}</h2>
+						</div>
 						{
 							config('content.language').map((lang, index) => {
 								return <LanguageItem key={index}
@@ -93,12 +107,20 @@ class App extends Component {
 					</div>
 				</div>
 
-				<div className="technology container read">
-					<div>
+				<div className="tool container">
+					<div className="w-100">
+						<div className="read mb-4">
+							<h2>{locale.get('common.others')}</h2>
+						</div>
 						{
 							config('content.tool').map((tool, index) => {
-								console.log(tool);
-								return <p key={index}>{tool.name}</p>
+								return <LanguageItem key={index}
+												  name={tool.name}
+												  start={tool.start}
+												  desc={locale.get(`content.tool.${tool.name.toLowerCase()}`)} 
+												
+												  logo={tool.logo}
+										/>
 							})
 						}
 					</div>
@@ -109,9 +131,7 @@ class App extends Component {
 						config('content.contact').map((item, index) => {
 							return <ContactItem key={index}
 												url={item.url} 
-												icon={item.icon} 
-												height={32} 
-												width={32 * (item.size[0] / item.size[1])}
+												logo={`/src/img/${item.logo}`}
 												className="contact-item" />
 						})
 					}

@@ -1,14 +1,14 @@
 /* Variables */
 :root {
 	/* Colors */
-	--primary: #ffd966;
-	--secondary:	#6666ff;
-	--primary-light: ;
-	--primary-dark: ;
-	--secondary-light: ;
-	--secondary-dark: ;
+	--primary: #FF9800;
+	--secondary: #0040ff;
+	--primary-light: #FFCC80;
+	--primary-dark: #E65100;
+	--secondary-light: #809fff;
+	--secondary-dark: #0033cc;
 	--background: #ffffe0;
-	--text-h: purple;
+	--text-h: black;
 	--text-p: #212121;
 	--text-link: red;
 
@@ -19,6 +19,7 @@
 	--font-family: monospace;
 	--font-size: 16px;
 	--line-height: 1.5;
+	--icon-size: 24px;
 }
 
 html, body {
@@ -36,9 +37,15 @@ h1 { font-size: 2em; }
 h2 { font-size: 1.5em; }
 h3 { font-size: 1.25em; }
 
+h1, h2 {
+	color: var(--primary);
+}
+
 a {
 	color: var(--text-link);
 }
+
+button { background-color: var(--primary-light); }
 
 /* Utilities class */
 .read {
@@ -108,7 +115,7 @@ h1 { font-size: 2em; }
 	max-width: 700px;
 }
 .language-item-header {
-	border-bottom: 1px solid var(--text-p);
+	border-bottom: 1px solid var(--primary-light);
 }
 .language-item-header > a {
 	color: var(--text-p);
@@ -128,7 +135,8 @@ h1 { font-size: 2em; }
 }
 .language-item-header img,
 .language-item-lib img {
-	height: 24px;
+	max-height: 24px;
+	max-width: 48px;
 }
 
 /* Contact */
@@ -157,9 +165,28 @@ h1 { font-size: 2em; }
 	}
 	.language-item-header img,
 	.language-item-lib img {
-		height: 32px;
+		max-height: 32px;
+		max-width: 64px;
 	}
 }
 
 @media screen and (orientation: portrait) {
+}
+
+.dev-mode-sign {
+	background-color: var(--secondary);
+	color: white;
+}
+
+/* Icons */
+[class^=icon-] {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.icon-clock {
+	background-image: url(/src/img/icon/icon-clock.png);
 }
