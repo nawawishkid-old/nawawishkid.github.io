@@ -15,12 +15,12 @@
 				"css": "lorem ipsum dolor",
 				"javascript": "lorem ipsum dolor",
 				"php": "lorem ipsum dolor",
-				"mysql": "lorem ipsum dolor"
+				"mysql": "Since I use framework like Laravel that use Eloquent library, I never touch SQL. But if I have to write it, I just google it. :)"
 			},
 			"tool": {
-				"git": "",
+				"git": "Basic command like <code>log</code>, <code>status</code>, <code>add</code>, <code>push</code>, <code>merge</code>, <code>checkout</code>, .etc",
 				"github": "",
-				"linux": ""
+				"linux": "Basic command like <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code>, .etc"
 			}
 		},
 		"common": {
@@ -46,12 +46,12 @@
 				"css": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
 				"javascript": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
 				"php": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า",
-				"mysql": "เบอร์เกอร์จตุคามไทม์โบว์ แบนเนอร์ไฮไลท์ เช็งเม้งแจ็กพอตต้าอ่วยพาสต้า"
+				"mysql": "ตั้งแต่ใช้ framework อย่าง Laravel ที่มี Eloquent มาให้ก็ไม่ได้แตะ SQL เลย แต่ถ้าต้องเขียนจริง ๆ Google แป๊บเดียวก็ได้แล้ว :)"
 			},
 			"tool": {
-				"git": "",
+				"git": "คำสั่งพื้นฐานอย่างเช่น <code>log</code>, <code>status</code>, <code>add</code>, <code>push</code>, <code>merge</code>, <code>checkout</code> เป็นต้น",
 				"github": "",
-				"linux": ""
+				"linux": "คำสั่งพื้นฐานอย่างเช่น <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code> เป็นต้น"
 			}
 		},
 		"common": {

@@ -72,7 +72,7 @@ export default class LanguageItem extends Component {
 					<div className="language-item-detail p-2 p-sm-3"
 					 	 style={p.descStyle}
 					>
-						<p className="language-item-desc">{p.desc}</p>
+						<p className="language-item-desc" dangerouslySetInnerHTML={{__html: p.desc}}></p>
 						{ libs }
 					</div>
 				</div>
