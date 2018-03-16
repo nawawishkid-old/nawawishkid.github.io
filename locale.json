@@ -20,7 +20,7 @@
 			"tool": {
 				"git": "Basic command like <code>log</code>, <code>status</code>, <code>add</code>, <code>push</code>, <code>merge</code>, <code>checkout</code>, .etc",
 				"github": "",
-				"linux": "Basic command like <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code>, .etc"
+				"linux": "Basic command like <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code>, .etc. Able to setup firewall and install LAMP stack on Ubuntu server."
 			}
 		},
 		"common": {
@@ -51,7 +51,7 @@
 			"tool": {
 				"git": "คำสั่งพื้นฐานอย่างเช่น <code>log</code>, <code>status</code>, <code>add</code>, <code>push</code>, <code>merge</code>, <code>checkout</code> เป็นต้น",
 				"github": "",
-				"linux": "คำสั่งพื้นฐานอย่างเช่น <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code> เป็นต้น"
+				"linux": "คำสั่งพื้นฐานอย่างเช่น <code>cd</code>, <code>rm</code>, <code>ls</code>, <code>mkdir</code>, <code>chown</code>, <code>chmod</code> เป็นต้น สามารถตั้งค่า firewall และติ้ตั้ง LAMP stack บนเซิร์ฟเวอร์ Ubuntu ได้"
 			}
 		},
 		"common": {
